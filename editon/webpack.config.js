@@ -18,11 +18,17 @@ module.exports={
 			favicon: './favicon.ico',
 			inject: true,
 		}), //默认模板src/index.ejs 默认输出index.html
+
+
+		//用这个是可以的.
 		new webpack.DefinePlugin({
 			//VERSION: ''+Date.now,//'[contenthash]',	
 			BUILT_AT: webpack.DefinePlugin.runtimeValue(Date.now, [fileDep]),
 
 		}),
+
+		//用这个也可以. 这个5.0移除了, 直接用__webpack_hash__
+		//new webpack.ExtendedAPIPlugin()
 	],
 
 	module: {
