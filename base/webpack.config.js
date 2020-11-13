@@ -23,9 +23,9 @@ module.exports={
 		new CleanWebpackPlugin({cleanStaleWebpackAssets: false}), //这样就不会清除index.html
 
 		new HtmlWebpackPlugin({
-			title: '管理输出',
+			title: '基础示例',
 		}),
-			new Manifest(),
+		//	new Manifest({}),
 
 
 	],
@@ -38,7 +38,14 @@ module.exports={
 
 	optimization: {
 		splitChunks: {
-			chunks: 'all',
+			//chunks: 'all',
+			cacheGroups: {
+				vendor: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendors',
+					chunks: 'all',
+				},
+			},
 		},
 		runtimeChunk: 'single',
 
