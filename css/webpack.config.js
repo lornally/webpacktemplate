@@ -1,8 +1,8 @@
 const HtmlWebpackPlugin=require('html-webpack-plugin');
 const {CleanWebpackPlugin}=require('clean-webpack-plugin');
 const MiniCssExtractPlugin=require('mini-css-extract-plugin');
-const postcssPresetEnv = require('postcss-preset-env');
-
+//const postcssPresetEnv = require('postcss-preset-env');
+//const posthtmlcssmodule=require('posthtml-css-module');
 
 // This library allows us to combine paths easily
 const path=require('path');
@@ -19,7 +19,7 @@ module.exports={
 		//app: './src/index.js', 
 		//sty: './src/style.css', //这个写法虽然也可以, 但是生成了多余的.css.js文件.
 		app: ['./src/index.js', //这个写法貌似是完美的写法.
-			'./src/style.css',]
+			'./src/style.sass',]
 	},
 
 	output: {
@@ -33,6 +33,7 @@ module.exports={
 			hash: true,
 			favicon: './favicon.ico',
 			title: 'css 实验项目', //用了模板之后, 这个就失效了.
+			template: './src/index.html',
 		}),
 		new MiniCssExtractPlugin(),
 	],
@@ -51,20 +52,16 @@ module.exports={
 						options: {
 							// Run `postcss-loader` on each CSS `@import`, do not forget that `sass-loader` compile non CSS `@import`'s into a single file
 							// If you need run `sass-loader` and `postcss-loader` on each CSS `@import` please set it to `2`
-							importLoaders: 2,
+							importLoaders: 1,
 							// Automatically enable css modules for files satisfying `/\.module\.\w+$/i` RegExp.
 							modules: {auto: true},
 							//sideEffects: true, // 这一句并没有啥用.
 						},
 					},
-					{
-						loader: 'postcss-loader',
-						options: {postcssOptions:{plugins: () => [postcssPresetEnv({stage: 0})]}},
-					},
-					// Can be `less-loader`
-					{
-						loader: 'sass-loader',
-					},
+
+					'postcss-loader',
+					'sass-loader',
+
 				],
 			},
 			{
@@ -74,6 +71,31 @@ module.exports={
 					limit: 8192,
 				},
 			},
+			//{
+			//	//	loaders: ['html?interpolate'],
+			//	test: /\.html$/,
+			//	loader: 'html-loader',
+			
+			//},
+			//{
+			//	test: /\.html$/,
+			//	use: [
+			//		'html-loader',
+			//		{
+			//			loader: 'posthtml-loader',
+			//			options: {
+			//				ident: 'posthtml',
+			//				parser: 'PostHTML Parser',
+			//				plugins: [
+			//					/* PostHTML Plugins */
+			//				//	posthtmlcssmodule
+			//					require('posthtml-css-module')()
+			//				]
+			//			}
+			//		}
+			//	]
+			//},
+
 		]
 	},
 };

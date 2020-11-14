@@ -1,4 +1,4 @@
-import style from  "./style.module.css";
+import style from  "./style.module.sass";
 
 //import  "./style.module.css"; 匿名import不得行, 因为无法引用了.
 

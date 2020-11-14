@@ -24,6 +24,20 @@
 - postcss
 
   - 好东西, css的预处理框架. 可以搭载各种插件.
+  - 直接webpack配置post是一种办法, 但是, 最好是新建一个postcss.config.js
+  - 看文档不仔细啊, 根本不需要posthtml 有个很好地例子.git@github.com:maltsev/css-modules-webpack-example.git
 
+```sh
+yarn add --dev postcss-loader postcss-preset-env postcss
+```
 
+```js
+module.exports = {
+  plugins: [ //把plugin放这里就OK了.
+    'postcss-preset-env',
+  ],
+};
+```
+
+- stylelint stylefmt
 
