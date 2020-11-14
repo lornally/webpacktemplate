@@ -17,6 +17,8 @@ module.exports={
 			//}
 		), //默认模板src/index.ejs 默认输出index.html
 
+		
+
 	],
 	module: {
     rules: [

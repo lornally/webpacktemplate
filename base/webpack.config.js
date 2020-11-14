@@ -37,6 +37,8 @@ module.exports={
 	},
 
 	optimization: {
+		//moduleIds: 'deterministic', //这个可以, 没有这个也可以. 因为webpack5默认是这个.  
+    //把node_modules单独打包, 单独缓存, 因为他们变化会比较少
 		splitChunks: {
 			//chunks: 'all',
 			cacheGroups: {

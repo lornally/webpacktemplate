@@ -32,7 +32,7 @@ module.exports={
 		new HtmlWebpackPlugin({
 			hash: true,
 			favicon: './favicon.ico',
-			title: 'css 实验项目',
+			title: 'css 实验项目', //用了模板之后, 这个就失效了.
 		}),
 		new MiniCssExtractPlugin(),
 	],
