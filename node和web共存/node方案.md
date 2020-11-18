@@ -28,11 +28,21 @@ const serverConfig = {
 	mode: 'development',
 	devtool: 'inline-source-map',
 	target: 'node',
-
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'lib.node.js'
-  }
+    path: path.resolve(__dirname, 'dist/api'),
+    filename: 'api.js'
+	},
+	module: {
+		rules: [
+			{
+				test: /\.m?js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader',			
+				}
+			},	
+		],
+	},
 };
 
 const clientConfig = {
@@ -46,7 +56,6 @@ const clientConfig = {
 };
 
 module.exports = [ serverConfig, clientConfig ];
-
 ```
 
 - 因为使用了默认的src/index.js, 所以没有设置输入点.
@@ -58,13 +67,20 @@ node lib.node.js
 
 - babel配置
 
-```
+```js
 //.babelrc文件, 不要处理module
-
 {
-  "presets": [
-    ["es2015", { "modules": false }] //告诉babel不要解析模块.
-  ]
+	"presets": [
+		["@babel/preset-env", {
+			"targets": {
+				//"browsers": "chrome >= 86",
+				"chrome": "86",
+				"node": "15"
+			},
+			"modules": false //告诉babel不要解析模块.
+		}]
+	],
+	"plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-proposal-object-rest-spread"]
 }
 ```
 
