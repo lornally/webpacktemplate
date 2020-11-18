@@ -26,12 +26,14 @@
   - 好东西, css的预处理框架. 可以搭载各种插件.
   - 直接webpack配置post是一种办法, 但是, 最好是新建一个postcss.config.js
   - 看文档不仔细啊, 根本不需要posthtml 有个很好地例子.git@github.com:maltsev/css-modules-webpack-example.git
+  - postcss虽然很好用, 但是module完全不必对他进行任何设置. 
 
 ```sh
 yarn add --dev postcss-loader postcss-preset-env postcss
 ```
 
 ```js
+//postcss的配置也独立出来, postcss.config.js
 module.exports = {
   plugins: [ //把plugin放这里就OK了.
     'postcss-preset-env',
@@ -39,5 +41,25 @@ module.exports = {
 };
 ```
 
+- html中使用css module, 最后回到了ejs这个方案.
+  - 官方demo是ejs配合react: https://github.com/css-modules/webpack-demo
+  - 可能似乎用scrpt标签就可以, 试一试. 依旧不可以, 放弃这个思路, 直接用react吧. 
+  - 放弃这个思路改为react
 - stylelint stylefmt
+- 引入css的方法
+```html
+<link href="/media/example.css" rel="stylesheet">
+<style>
+  @import "mystyle.css";
+  @import url("mystyle.css") screen and (orientation:landscape);
+</style>
 
+import 'bootstrap/css/bootstrap.css!';
+
+import 'bootstrap/css/bootstrap.css!css';
+
+import 'bootstrap/css/bootstrap.css!customCssLoader';
+
+```
+
+- 参考15年的, 后来webpack改为和amd一致的写法了.: https://60devs.com/differences-in-plugin-micro-syntax-between-various-es6-loaders.html

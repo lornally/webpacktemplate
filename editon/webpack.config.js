@@ -14,7 +14,10 @@ module.exports={
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			hash: true,
-			templateParameters:{title: [fileDep] },
+			//这个也是可以的. 直接用title
+			templateParameters:{
+				title: JSON.stringify([fileDep]),
+			},
 			favicon: './favicon.ico',
 			inject: true,
 		}), //默认模板src/index.ejs 默认输出index.html
@@ -30,6 +33,12 @@ module.exports={
 		//用这个也可以. 这个5.0移除了, 直接用__webpack_hash__
 		//new webpack.ExtendedAPIPlugin()
 	],
+	//用这个也是可以的
+	externals: { //直接配置
+		'ex_title': JSON.stringify({
+			tt: 'eiten的title',
+		})
+	},
 
 	module: {
 		rules: [

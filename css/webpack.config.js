@@ -3,6 +3,7 @@ const {CleanWebpackPlugin}=require('clean-webpack-plugin');
 const MiniCssExtractPlugin=require('mini-css-extract-plugin');
 //const postcssPresetEnv = require('postcss-preset-env');
 //const posthtmlcssmodule=require('posthtml-css-module');
+//const style =require(  "./src/style.module.sass");
 
 // This library allows us to combine paths easily
 const path=require('path');
@@ -33,9 +34,13 @@ module.exports={
 			hash: true,
 			favicon: './favicon.ico',
 			title: 'css 实验项目', //用了模板之后, 这个就失效了.
-			template: './src/index.html',
+			templateParameters:{
+				title: JSON.stringify({xxx:'toeuoe'}),
+			},
+	//		template: './src/index.html',
 		}),
-		new MiniCssExtractPlugin(),
+		//这里不设置filename, 也是正确结果. 
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' })
 	],
 	module: {
 		rules: [
@@ -58,6 +63,13 @@ module.exports={
 							//sideEffects: true, // 这一句并没有啥用.
 						},
 					},
+				//	{
+				//		loader: 'postcss-loader',
+				////		options: {postcssOptions: {plugins: () => [postcssPresetEnv({stage: 0})]}},
+				//	},
+					//{
+					//	loader: 'sass-loader',
+					//},
 
 					'postcss-loader',
 					'sass-loader',

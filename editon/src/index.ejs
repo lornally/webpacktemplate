@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title><%= 'v'+ BUILT_AT + 'hash'+__webpack_hash__  %></title>
+	<title><%= 'v:'+ BUILT_AT +' hash:'+ 'hash'+__webpack_hash__ +" title:" + title %></title>
 	<!-- "title + VERSION" + -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,20 @@
 </head>
 
 <body>
+
+	<p>
+		<%= __webpack_exports_info__.ex_title %>
+
+
+		ttttt
+		<%= title %>
+
+		
+
+
+	</p>
+	
+
 	<div id="container"></div>
 	<article class="sh" >
 		<span onclick="floatingpanel.style.display='';">显示</span>

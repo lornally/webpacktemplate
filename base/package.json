@@ -8,7 +8,7 @@
 		"build": "webpack",
 		"watch": "webpack --watch",
 		"server": "node server.js",
-		"start": "webpack serve "
+		"dev": "webpack serve "
 	},
 	"keywords": [],
 	"author": "",
