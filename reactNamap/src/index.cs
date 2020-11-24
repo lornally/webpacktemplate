@@ -23,9 +23,9 @@ class LikeButton extends React.Component
 #ReactDOM.render e(LikeButton), domContainer
 
 
-export Hello = () ->
-  <div className="hello-world">
-    <h1>Helyoujianmianlea</h1>
+export Hello = (props) ->
+  <div className={style.moduleclass}>
+    <h1>props</h1>
   </div>
 
 ReactDOM.render	<Hello />,document.getElementById('reactcontainer')

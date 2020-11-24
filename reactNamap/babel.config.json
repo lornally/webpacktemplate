@@ -1,4 +1,5 @@
 
+//这个文件是json5
 {
 	"presets": [
 		"@babel/preset-react",
@@ -8,7 +9,8 @@
 				"chrome": "86",
 				"node": "15"
 			},
-			"modules": false //告诉babel不要解析模块.
+			//告诉babel不要解析模块. 因为webpack会解析
+			"modules": false
 		}]
 	],
 	"plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-proposal-object-rest-spread"]
