@@ -1,0 +1,15 @@
+
+{
+	"presets": [
+		"@babel/preset-react",
+		["@babel/preset-env", {
+			"targets": {
+				//"browsers": "chrome >= 86",
+				"chrome": "86",
+				"node": "15"
+			},
+			"modules": false //告诉babel不要解析模块.
+		}]
+	],
+	"plugins": ["@babel/plugin-transform-runtime", "@babel/plugin-proposal-object-rest-spread"]
+}
