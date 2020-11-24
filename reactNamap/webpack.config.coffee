@@ -30,7 +30,7 @@ module.exports =
 			test: /\.coffee$|\.cs$/,
 			exclude: /(node_modules|bower_components)/
 			loader: 'coffee-loader'
-			options: transpile: presets: ['@babel/env',"@babel/preset-react"]
+			options: transpile: presets: ['@babel/env',"@babel/react"]
 		}
 		{
 			test: /\.cson$/

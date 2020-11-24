@@ -2,8 +2,8 @@
 //这个文件是json5
 {
 	"presets": [
-		"@babel/preset-react",
-		["@babel/preset-env", {
+		"@babel/react",
+		["@babel/env", {
 			"targets": {
 				//"browsers": "chrome >= 86",
 				"chrome": "86",

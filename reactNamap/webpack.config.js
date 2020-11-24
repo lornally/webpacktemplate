@@ -47,7 +47,7 @@
           options: {
             transpile: {
               presets: ['@babel/env',
-        "@babel/preset-react"]
+        "@babel/react"]
             }
           }
         },
