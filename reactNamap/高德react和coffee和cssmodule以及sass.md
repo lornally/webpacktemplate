@@ -6,6 +6,10 @@
 - coffee
 - css module
 
+###### 高德地图
+
+- 使用最原始方式添加, 因为这货太坑了. 
+
 ###### 页面中可以添加react
 
 > https://zh-hans.reactjs.org/docs/add-react-to-a-website.html
@@ -18,21 +22,21 @@
   exclude: /(node_modules|bower_components)/
   loader: 'coffee-loader'
   options: transpile: presets: ['@babel/env',"@babel/preset-react"]
+  #这一行的babel配置是必须的.
 }
 ```
 
 ###### balel
 
-- .babelrc其实没有生效, 尝试使用babel.config.json
-- 其实不是, coffee的babel配置是必须的. 不能省.
+- coffee的babel配置是必须的. 不能省.
 - babel自己的配置也不能省, 官方推荐使用babel.config.json, 不推荐.babelrc, 因为各种原因. 官方有说明: https://babeljs.io/docs/en/config-files#project-wide-configuration
 
 ```json
 //这个文件是json5
 {
-  "presets": [
-    "@babel/preset-react",
-    ["@babel/preset-env", {
+  "presets": [ //presets里面的项目的名字中的preset可以省略, 如下所示
+    "@babel/preset-react", //这么也可以: "@babel/react",
+    ["@babel/preset-env", { //这样也可以: "@babel/env"
       "targets": {
         //"browsers": "chrome >= 86",
         "chrome": "86",
@@ -50,8 +54,14 @@
 
 - 和react果然是绝配, 轻而易举的就实现了.
 
+###### webpack
+
+- resolve字段的作用是, import资源的时候可以忽略的扩展名.
+
 ###### 坑
 
 - 高德很傻, id必须是container, 换id就没显示.
-- ejs是模板文件,  在webpack serve的过程中, 更改ejs并不触发更新
-- 莫名其妙, 自动不起作用. 重启一下试试. todo
+- 莫名其妙, 自动不起作用. 
+  - 重启无用.
+  - ejs修改也不触发.
+  - 是target: node的原因.

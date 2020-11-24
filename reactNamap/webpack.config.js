@@ -13,7 +13,6 @@
   module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
-    target: 'node',
     output: {
       path: path.resolve(__dirname, 'dist/api'),
       filename: '[name].js'
