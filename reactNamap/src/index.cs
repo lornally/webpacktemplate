@@ -1,21 +1,21 @@
 
 import style from  "./style.module.sass"
-import React from 'react'
+import React, { useState }  from 'react'
 import ReactDOM from 'react-dom'
 
-e = React.createElement
+#e = React.createElement
 
-class LikeButton extends React.Component
-  constructor: (props) ->
-    super props
-    @state =  liked: false
-  render: ->
-    return 'You liked this.' if (@state.liked)
-    e(
-      'button'
-      { onClick: () => @setState({ liked: true }) }
-      'Like'
-    )
+#class LikeButton extends React.Component
+#  constructor: (props) ->
+#    super props
+#    @state =  liked: false
+#  render: ->
+#    return 'You liked this.' if (@state.liked)
+#    e(
+#      'button'
+#      { onClick: () => @setState({ liked: true }) }
+#      'Like'
+#    )
 
 
 
@@ -24,8 +24,13 @@ class LikeButton extends React.Component
 
 
 export Hello = (props) ->
-  <div className={style.moduleclass}>
-    <h1>props hello</h1>
+	[count, setCount] = useState(0) # initialize state
+	<div className={style.moduleclass}>
+		<h1>props hello hahaha oeuaoeu {props.name}</h1>
+		<p>You clicked {count} times</p>
+      <button onClick={ -> setCount count + 1}>
+        Click me
+      </button>
   </div>
 
-ReactDOM.render	<Hello />,document.getElementById('reactcontainer')
+ReactDOM.render	<Hello name="天才"/>,document.getElementById('reactcontainer')

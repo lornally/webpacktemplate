@@ -52,7 +52,7 @@
 
 ###### css-module
 
-- 和react果然是绝配, 轻而易举的就实现了.
+- 和react果然是绝配, 直接就成功了.
 
 ###### webpack
 
@@ -61,7 +61,35 @@
 ###### 坑
 
 - 高德很傻, id必须是container, 换id就没显示.
-- 莫名其妙, 自动不起作用. 
-  - 重启无用.
-  - ejs修改也不触发.
-  - 是target: node的原因.
+- target: node会导致webpack serve的自动不起作用. 
+
+###### react语法
+
+```jsx
+//组件使用函数写法, 不要使用class写法
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+- 时代在进步stata也可以用function写法了
+
+```coffeescript
+import style from  "./style.module.sass"
+import React, { useState }  from 'react'
+import ReactDOM from 'react-dom'
+export Hello = (props) ->
+	[count, setCount] = useState(0)
+	<div className={style.moduleclass}>
+		<h1>props hello hahaha oeuaoeu {props.name}</h1>
+		<p>You clicked {count} times</p>
+      <button onClick={ -> setCount count + 1}>
+        Click me
+      </button>
+  </div>
+
+ReactDOM.render	<Hello name="天才"/>,document.getElementById('reactcontainer')
+```
+
+- react的层次概念其实有点烦, 想想传递参数要一层层传递下去. 
+- 牛啊, 即便不用hooks, 也可以functional的写react. 不过要用prototype而已. 语法上面比较唠叨, 语法糖还是需要的.

@@ -82,7 +82,7 @@
     "level": "ignore"
   },
   "no_nested_string_interpolation": {
-    "level": "warn"
+    "level": "ignore"
   },
   "no_plusplus": {
     "level": "ignore"
