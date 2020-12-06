@@ -32,5 +32,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.20"
-  }
+	},
+	"module": "src/index.cs"
 }

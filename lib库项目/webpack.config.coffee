@@ -11,7 +11,8 @@ module.exports =
 	output:
 		path: path.resolve(__dirname, 'dist/api')
 		filename: '[name].js'
-		library: 'webpackNumbers' # 指定library编译的兼容性, common, es6, amd, umd, link...
+		library: 'mlib' # 指定library的name
+		libraryTarget: 'umd' # 指定library编译的兼容性, common, es6, amd, umd, link...
 	externals:[ # 把lodash声明为外部的环境依赖, 这样运行库的时候回进行环境监测, 并且也避免把bodash打包到库里面.
 		lodash:
 			commonjs: 'lodash'
