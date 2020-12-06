@@ -22,4 +22,16 @@ export randomcolor = ->
 
 # 随机一个量颜色
 export randomlight = ->
-	lightstr randomcolor 0
+	lightstr
+		str:randomcolor 0
+		isback:false
+
+
+
+
+export default {
+	randomint
+	e4arr
+	randomcolor
+	randomlight
+}

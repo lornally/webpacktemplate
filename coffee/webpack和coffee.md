@@ -69,6 +69,7 @@ yarn add --dev coffeescript #前面已经安装过了.
 coffee example.coffee
 #但是各种问题, 比如import不支持, cson不支持import...
 #最终还是webpack解决一切问题.
+# 如果使用了import module, 那么可能报错, 参考: module一劳永逸
 ```
 
 - https://stackoverflow.com/questions/4679782/can-i-use-coffeescript-instead-of-js-for-node-js
@@ -88,11 +89,11 @@ node --inspect index.js
 coffee --nodejs debug server.coffee
 ```
 
-- 是我傻叉了. 根目录精确直接就是可以debug coffee的. 奶奶的. 之前都是项目组, 所以不可以, 直接用项目根目录打开. 就可以直接debug了.
+- 是我傻叉了. 根目录进去直接就是可以debug coffee的. 奶奶的. 之前都是项目组, 所以不可以, 直接用项目根目录打开. 就可以直接debug了.
 - 样板配置: https://github.com/Microsoft/vscode/issues/5963
 
 ```json
-{
+{ //大神给的
   "name": "Coffee",
   "type": "node",
   "request": "launch",
@@ -106,8 +107,8 @@ coffee --nodejs debug server.coffee
   ]
   "smartStep": false
 }
-{
-  // 我自己的可以正常调试用的配置文件
+
+{// 我自己的可以正常调试用的配置文件
   "version": "0.2.0",
   "configurations": [
     {
@@ -118,11 +119,12 @@ coffee --nodejs debug server.coffee
         "<node_internals>/**"
       ],
       "program": "${file}", //这个好, 这个是当前文件
-      "outFiles": [ //这个字段很关键, 没有这个就不能调试coffee
-        "${workspaceFolder}/dist/api/api.js"
+      "outFiles": [ //这个字段很关键, 没有这个就不能调试coffee, 这是说到哪里去搜索
+        "${workspaceFolder}/dist/api/*.js"
       ]
     }
   ]
 }
 ```
 
+- 特别注意: 由于文件修改并不会触发编译, 因此很多时候调试会不对, 此时应该打开webpack watch

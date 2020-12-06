@@ -249,4 +249,11 @@ test = ->
 	console.log {result}
 
 
-#test()
+export default {
+	lightstr
+	lightrgb
+	getlight
+	getdark
+	samergbstr
+
+}

@@ -10,3 +10,12 @@ export gethhmm =(timestamp=Date.now())->
 export gethhmmss =(timestamp=Date.now())->
 	t=new Date(+timestamp)
 	t.getHours()+':'+t.getMinutes()+':'+t.getSeconds()
+
+
+
+
+export default {
+	sleep
+	gethhmm
+	gethhmmss
+}

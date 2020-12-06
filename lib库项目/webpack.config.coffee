@@ -1,6 +1,7 @@
 path = require('path')
 { CleanWebpackPlugin } = require('clean-webpack-plugin')
 nodeExternals = require('webpack-node-externals')
+glob = require("glob")
 
 
 #先按照测试环境配置, 生产环境是不一样的.
@@ -24,7 +25,13 @@ module.exports =
 		nodeExternals() #这个很有用, 排除所有node_modules
 		/^library\/.+$/
 	]
-	entry: 	'./src/index.cs'
+	entry:
+		glob.sync('./src/**.cs').reduce (obj, el)->
+			obj[path.parse(el).name] = el
+			obj
+		,{}
+		
+		
 	plugins: [
 		new CleanWebpackPlugin({cleanStaleWebpackAssets: false})
 	],
@@ -50,4 +57,8 @@ module.exports =
 				loader: 'cson-loader'
 		}
 	]
+
 	
+	resolve:
+		alias: mlib: path.resolve(__dirname, './src/')
+		extensions: ['.cs', '.coffee', '.mjs', '.js']

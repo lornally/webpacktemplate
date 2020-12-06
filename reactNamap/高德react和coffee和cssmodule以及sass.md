@@ -65,4 +65,11 @@
 
 ###### react
 
-- 主要是语法, 放到了post/20201120 coffee很简洁但是还可以更简洁
+- 主要是语法, 放到了post/20201130 react有很多进步
+
+###### coffee
+
+- coffee的语法,  放到了post/20201120 coffee很简洁但是还可以更简洁
+- coffee能执行时因为指定了在哪里寻找coffee的编译文件. 是在vscode的launch.json中指定的.
+- 在样板项目中有webpack和coffee.md
+
