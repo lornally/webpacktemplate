@@ -25,7 +25,7 @@ module.exports =
 		nodeExternals() #这个很有用, 排除所有node_modules
 		/^library\/.+$/
 	]
-	entry:
+	entry: # 生成多个entry, 对象格式
 		glob.sync('./src/**.cs').reduce (obj, el)->
 			obj[path.parse(el).name] = el
 			obj
@@ -59,6 +59,6 @@ module.exports =
 	]
 
 	
-	resolve:
+	resolve: # 解决自动查找index.cs而不是index.js的问题
 		alias: mlib: path.resolve(__dirname, './src/')
 		extensions: ['.cs', '.coffee', '.mjs', '.js']
