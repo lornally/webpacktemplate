@@ -1,0 +1,23 @@
+#开发用的webpack配置文件
+
+{merge} = require 'webpack-merge'
+common = require './webpack.common.coffee'
+
+module.exports=merge common,{
+	
+	entry:{
+		app: [
+			'./src/index.cs'
+			'./src/index.sass'
+		]
+		(glob.sync('./src/**/**.cs').reduce (obj, el)->
+			obj[path.parse(el).name] = el
+			obj
+		,{})...
+	}
+	mode: 'development'
+	devtool: 'inline-source-map'
+	devServer: contentBase: './output/online'
+  #直接配置 #本机的url
+	externals: 'webpackonfig': JSON.stringify apiurl: 'http://localhost:30004/wuliu_back/uds/'
+}

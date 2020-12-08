@@ -7,6 +7,13 @@ yarn add --dev webpack  webpack-cli webpack-merge webpack-dev-server webpack-dev
 ###### 配置
 
 - 可以用coffee配置webpack. https://webpack.docschina.org/configuration/configuration-languages/
+- 此时会出现问题, 自动生成.js配置文件. 这些要删除, 参见webpack精华
+
+```sh
+modified:   webpack.common.coffee
+deleted:    webpack.common.js
+deleted:    webpack.common.js.map
+```
 
 ###### react
 
