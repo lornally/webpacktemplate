@@ -1,7 +1,9 @@
 #开发用的webpack配置文件
+path = require('path')
 
 {merge} = require 'webpack-merge'
 common = require './webpack.common.coffee'
+glob = require("glob")
 
 module.exports=merge common,{
 	
