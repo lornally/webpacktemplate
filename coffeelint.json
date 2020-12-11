@@ -37,7 +37,7 @@
     "level": "ignore"
   },
   "indentation": {
-    "value": 2,
+    "value": 1,
     "level": "error"
   },
   "line_endings": {
@@ -46,8 +46,8 @@
   },
   "max_line_length": {
     "value": 80,
-    "level": "error",
-    "limitComments": true
+    "level": "ignore",
+    "limitComments": false
   },
   "missing_fat_arrows": {
     "level": "ignore",
