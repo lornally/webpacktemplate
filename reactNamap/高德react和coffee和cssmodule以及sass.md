@@ -10,6 +10,13 @@
 
 - 使用最原始方式添加, 因为这货太坑了. 
 
+```
+map.setFitView(); //自动调整视野, 这个快, 但是效果真矬
+map.setCenter [p.E, p.N] //手动设置中心点, 这个很慢
+```
+
+- 海量点, 必须用图片, 但是, 似乎必须要用了. 
+
 ###### 页面中可以添加react
 
 > https://zh-hans.reactjs.org/docs/add-react-to-a-website.html

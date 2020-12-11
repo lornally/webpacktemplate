@@ -95,14 +95,7 @@ module.exports={
 					'file-loader',
 				],
 			},
-			{
-				test: /\.(woff|woff2|eot|ttf|otf)$/,
-				exclude: /(node_modules|bower_components)/,
-
-				use: [
-					'file-loader',
-				],
-			},
+		
 			{
 				test: /\.(csv|tsv)$/,
 				exclude: /(node_modules|bower_components)/,
