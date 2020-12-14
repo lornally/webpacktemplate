@@ -1,7 +1,7 @@
 {
-	"name": "webpack-demo",
+	"name": "lornpug",
 	"version": "1.0.0",
-	"description": "",
+	"description": "js测试框架: 单身狗",
 	"private": true,
 	"keywords": [],
 	"author": "",

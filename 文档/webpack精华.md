@@ -446,6 +446,21 @@ deleted:    webpack.common.js.map
 
 - 考虑使用脚手架
 
+### 配置文件
+
+- 最好都是独立的. 比如babel和postcss
+
+## 测试框架
+
+- 需要在文件打包时做手脚, 
+- 把我们的测试文件生成为可以运行的js文件.
+
+### loader
+
+### plugin
+
+
+
 ### 脚手架
 
 - 我的项目都用了啥?
@@ -462,7 +477,3 @@ deleted:    webpack.common.js.map
   - i18n
   - 多浏览器插件
   - 性能优化, 依赖打包
-
-### 配置文件
-
-- 最好都是独立的. 比如babel和postcss

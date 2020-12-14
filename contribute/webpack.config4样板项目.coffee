@@ -26,11 +26,7 @@ module.exports =
 		/^library\/.+$/
 	]
 	entry: # 生成多个entry, 对象格式
-		#glob.sync('./src/**.cs').reduce (obj, el)->
-		#	obj[path.parse(el).name] = el
-		#	obj
-		#,{},
-		glob.sync('./src/**/**.cs').reduce (obj, el)->
+		glob.sync('./src/**.cs').reduce (obj, el)->
 			obj[path.parse(el).name] = el
 			obj
 		,{}

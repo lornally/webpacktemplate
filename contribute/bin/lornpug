@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+
+
+console.log('hahahahahahaha');
+console.log("process.cwd() = " + process.cwd());
+console.log("__dirname = " + __dirname);
+console.log("参数",process.argv);
+return
+
+try {
+	new Function('var {a} = {a: 1}')();
+} catch(error) {
+	console.error('Your JavaScript runtime does not support some features used by the coffee command. Please use Node 6 or later.');
+	process.exit(1);
+}
+
+var path=require('path');
+var fs=require('fs');
+
+var potentialPaths=[
+	path.join(process.cwd(),),
+	path.join(process.cwd(),),
+	path.join(process.cwd(),),
+	path.join(__dirname,'../lib/c')
+];
+
+for(var i=0,len=potentialPaths.length;i<len;i++) {
+	if(fs.existsSync(potentialPaths[i])) {
+		require(potentialPaths[i]+'/command').run();
+		break;
+	}
+}
+
+
+//传参数
+var program=require('commander');
+
+program
+	.arguments('<file>')
+	.option('-u, --username <username>','The user to authenticate as')
+	.option('-p, --password <password>','The users password')
+		.action(function(file) {
+			console.log('user: %s pass: %s file: %s',
+				program.username,program.password,file);
+		})
+		.parse(process.argv);

@@ -31,14 +31,14 @@
     "level": "ignore"
   },
   "ensure_comprehensions": {
-    "level": "warn"
+    "level": "ignore"
   },
   "eol_last": {
     "level": "ignore"
   },
   "indentation": {
     "value": 1,
-    "level": "error"
+    "level": "warn"
   },
   "line_endings": {
     "level": "ignore",
@@ -46,7 +46,7 @@
   },
   "max_line_length": {
     "value": 80,
-    "level": "error",
+    "level": "ignore",
     "limitComments": false
   },
   "missing_fat_arrows": {
@@ -82,7 +82,7 @@
     "level": "ignore"
   },
   "no_nested_string_interpolation": {
-    "level": "warn"
+    "level": "ignore"
   },
   "no_plusplus": {
     "level": "ignore"
