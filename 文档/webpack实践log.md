@@ -586,3 +586,12 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
 ###### 20210115
 
 - 多个html
+- 官方文档就有多页面: https://github.com/jantimon/html-webpack-plugin#generating-multiple-html-files
+- stackoverflow
+  - https://stackoverflow.com/questions/52434167/how-can-i-use-multiple-entries-in-webpack-alongside-multiple-html-files-in-htmlw
+  - https://stackoverflow.com/questions/39798095/multiple-html-files-using-webpack
+
+###### 20210116
+
+- 完成多html页面
+- 尝试i18n
