@@ -78,24 +78,24 @@ module.exports =
 			hash: true
 			favicon: './favicon.ico'
 			inject: true
-			template: `./src/pop.ejb`, # relative path to the HTML files
-			filename: `pop.html`, # output HTML files
-			chunks: [`pop`] # respective JS files
+			template: './src/pop.ejb', # relative path to the HTML files
+			filename: 'pop.html', # output HTML files
+			chunks: ['pop'] # respective JS files
 
 		new HtmlWebpackPlugin
 			hash: true
 			favicon: './favicon.ico'
 			inject: true
-			template: `./src/a1.ejb`, # relative path to the HTML files
-			filename: `a1.html`, # output HTML files
-			chunks: [`a1`] # respective JS files
+			template: './src/a1.ejb', # relative path to the HTML files
+			filename: 'a1.html', # output HTML files
+			chunks: ['a1'] # respective JS files
 		new HtmlWebpackPlugin
 			hash: true
 			favicon: './favicon.ico'
 			inject: true
-			template: `./src/b1.ejb`, # relative path to the HTML files
-			filename: `b1.html`, # output HTML files
-			chunks: [`b1`] # respective JS files
+			template: './src/b1.ejb', # relative path to the HTML files
+			filename: 'b1.html', # output HTML files
+			chunks: ['b1'] # respective JS files
 		new MiniCssExtractPlugin
 	]
 
