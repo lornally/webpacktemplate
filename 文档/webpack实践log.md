@@ -561,5 +561,28 @@ module.exports = [{
     - 搞控件
     - 搞库
 
-  
 
+###### 1227
+
+- 开始尝试支持softlink
+
+````coffeescript
+# webpack.common.coffee
+resolve: # 解决自动查找index.cs而不是index.js的问题 #lib的配置
+alias: mlib: path.resolve __dirname, './src/mlib/src/'
+extensions: ['.cs', '.coffee', '.mjs', '.js']
+symlinks: true
+# 这里明白了, 不该alias 再加symlink, 直接alias过去就好了.
+# alias依旧不支持~
+````
+
+- 尝试成功, 遇到一个报错
+
+```sh
+Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDefault' in '/Users/bergman/git/_X/code/lib/mcktools/src'
+# 这个报错的原因是mcktools项目本身没有安装自己以来的module, 并且也没有webpack build过. 他本身OK了. 整个项目也就OK了.
+```
+
+###### 20210115
+
+- 多个html

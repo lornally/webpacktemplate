@@ -31,6 +31,14 @@ const v4={
 };
 ```
 
+###### package.json中设置, 运行多个指令,  并且分别生成测试结果
+
+```json
+"scripts": {
+  "test": " webpack >webpack.log &&  node ./dist/api/api.js > test.json",
+},
+```
+
 ###### 生产包和测试包分离
 
 	- https://webpack.docschina.org/guides/production/
