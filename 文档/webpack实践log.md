@@ -595,3 +595,9 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
 
 - 完成多html页面
 - 尝试i18n
+  - 不同的语言用不同的cson
+  - 或者同一个cson, 不同的key
+
+###### 20210118
+
+- c24n coffeeinternathionalization

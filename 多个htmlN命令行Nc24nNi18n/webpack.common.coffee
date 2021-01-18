@@ -56,7 +56,7 @@ module.exports =
 			'./src/pop.sass'
 		]
 		a1: [
-			'./src/a1.js'
+			'./src/a1.cs'
 			'./src/a1.sass'
 		]
 		b1: [

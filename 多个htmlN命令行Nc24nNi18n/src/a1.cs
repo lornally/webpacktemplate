@@ -1,21 +1,3 @@
-1. 样例在: 多个html
-2. 新的名字c24n coffeeinternathionalization
-
-###### cson
-
-```cson
-'黑化':
-	cn: '黑化'
-	en: 'dark'
-	info: '按钮上面的文字'
-'强暴黑':
-	cn: '强暴黑'
-	en: 'force dark'
-```
-
-###### cs
-
-```coffeescript
 import str from './local/lang.cson'
 import c24n from './c24n.cs'
 
@@ -28,6 +10,3 @@ ls=c24n.localstr
 
 # 拿到当前语言的: '黑化'
 console.log ls '黑化'
-
-```
-
