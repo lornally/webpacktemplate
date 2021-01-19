@@ -1,6 +1,7 @@
 {
-  "name": "show",
-  "version": "1.0.0",
+  "name": "cn",
+	"version": "1.0.0",
+	"bin": "./exroot/dist/bin.js",
   "description": "数据的可视化展示",
   "main": "src/index.js",
   "repository": {
@@ -21,8 +22,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
 		"webpack": "webpack",
-		"prod": "webpack --config webpack.prod.coffee",
-		"dev": "webpack --config webpack.dev.coffee",
+		"build": "webpack --config webpack.prod.coffee",
+		"dev": "webpack serve --config webpack.dev.coffee",
+    "prod": "webpack serve --config webpack.prod.coffee",
+		"make": "webpack --config webpack.dev.coffee && chmod u+x ./exroot/dist/bin.js",
     "watch": "webpack --watch --config webpack.dev.coffee"
   },
   "devDependencies": {

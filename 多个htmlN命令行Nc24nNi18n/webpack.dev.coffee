@@ -4,9 +4,10 @@ path = require('path')
 common = require './webpack.common.coffee'
 glob = require("glob")
 
-module.exports=merge common,{
+html=merge common,
 	mode: 'development'
 	devtool: 'inline-source-map'
+	#target: 'node'
 	#entry:{
 	#	app: [
 	#		'./src/index.cs'
@@ -20,4 +21,10 @@ module.exports=merge common,{
 	#devServer: contentBase: './output/online'
   #直接配置 #本机的url
 	#externals: 'webpackonfig': JSON.stringify apiurl: 'http://localhost:30004/wuliu_back/uds/'
-}
+
+cmd =merge common,
+	mode: 'development'
+	devtool: 'inline-source-map'
+	target: 'node'
+
+module.exports=[html,cmd]

@@ -3,6 +3,7 @@ path = require('path')
 { CleanWebpackPlugin } = require('clean-webpack-plugin')
 HtmlWebpackPlugin = require('html-webpack-plugin')
 MiniCssExtractPlugin = require('mini-css-extract-plugin')
+webpack = require 'webpack'
 
 module.exports =
 
@@ -51,6 +52,7 @@ module.exports =
 		],
 	#entry: mlib: './src/mlib/src/index.cs' #lib的配置
 	entry:
+		bin: './src/test.cs'
 		pop: [
 			'./src/pop.js'
 			'./src/pop.sass'
@@ -74,6 +76,9 @@ module.exports =
 		#libraryExport: 'mlib' #指定暴露的内容, 在entry设置
 	plugins: [
 		new CleanWebpackPlugin
+		new webpack.BannerPlugin
+			banner: '#!/usr/bin/env node'
+			raw: true
 		new HtmlWebpackPlugin
 			hash: true
 			favicon: './favicon.ico'
