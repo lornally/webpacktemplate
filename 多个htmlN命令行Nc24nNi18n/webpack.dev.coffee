@@ -1,10 +1,9 @@
 #开发用的webpack配置文件
-path = require('path')
 {merge} = require 'webpack-merge'
-common = require './webpack.common.coffee'
-glob = require("glob")
+html = require './webpack.html.coffee'
+cmd = require './webpack.cmd.coffee'
 
-html=merge common,
+devhtml=merge html,
 	mode: 'development'
 	devtool: 'inline-source-map'
 	#target: 'node'
@@ -22,9 +21,10 @@ html=merge common,
   #直接配置 #本机的url
 	#externals: 'webpackonfig': JSON.stringify apiurl: 'http://localhost:30004/wuliu_back/uds/'
 
-cmd =merge common,
+devcmd =merge cmd,
 	mode: 'development'
 	devtool: 'inline-source-map'
 	target: 'node'
 
-module.exports=[html,cmd]
+module.exports=[devcmd, devhtml]
+#module.exports=[devhtml,devcmd]
