@@ -6,9 +6,6 @@
 	<title>Document</title>
 </head>
 <body>
-	h33333333333
-	
-	hello, 这里是配置页面.
-	列出所有的配置, 可以修改配置.
+	<div id="reactcontainer">这里是react的根</div>
 </body>
 </html>

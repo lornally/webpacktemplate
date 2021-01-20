@@ -601,3 +601,15 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
 ###### 20210118
 
 - c24n coffeeinternathionalization
+
+
+
+###### 0119
+
+- 完成了c24n
+- 完成了cmd和html共存
+
+###### 0120
+
+- 凌晨1:00, 困了, 睡醒了继续弄react配合c24n(i18n的coffee版本)
+
