@@ -1,6 +1,6 @@
 # 基础的webpack配置文件, 不含html和cmd的单独的设置
 path = require('path')
-#{ CleanWebpackPlugin } = require('clean-webpack-plugin')
+{ CleanWebpackPlugin } = require('clean-webpack-plugin')
 HtmlWebpackPlugin = require('html-webpack-plugin')
 MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -28,13 +28,14 @@ module.exports =
 		],
 	output:
 		filename: '[name].js'
-		path: path.resolve __dirname,'exroot/dist'
+		# path: path.resolve __dirname,'exroot/dist'
+		# 不同的内容应该输出到不同的目录. 不然无法正常运行
 		publicPath: '.'
-	#plugins: [
-	#	new CleanWebpackPlugin
-	#]
+	plugins: [
+		new CleanWebpackPlugin
+	]
 	optimization:
-		#runtimeChunk: 'single',
+		runtimeChunk: 'single',
 		splitChunks: cacheGroups: vendor:
 			test: /[\\/]node_modules[\\/]/
 			name: 'vendors'

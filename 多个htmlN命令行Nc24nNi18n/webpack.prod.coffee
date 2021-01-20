@@ -5,9 +5,11 @@
 html = require './webpack.html.coffee'
 module.exports=merge html,
 	mode: 'production'
-	plugins: [
-		new CleanWebpackPlugin
-	]
+	#plugins: [
+	#	new CleanWebpackPlugin
+	#]
+	# 因为prod只输出一个module.exports, 所以可以优化runtime.js, 不担心覆盖问题
+	#optimization:	runtimeChunk: 'single',
 	#配置后台地址 //server的url
 	#externals: 'webpackonfig': JSON.stringify	apiurl: 'http://39.100.155.145:30004/wuliu_back/uds/'
 	#配置生产环境专用css

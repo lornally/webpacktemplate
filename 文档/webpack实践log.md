@@ -612,4 +612,5 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
 ###### 0120
 
 - 凌晨1:00, 困了, 睡醒了继续弄react配合c24n(i18n的coffee版本)
+- 昨天的问题其实是输出目录的问题, html和cmd要分开
 

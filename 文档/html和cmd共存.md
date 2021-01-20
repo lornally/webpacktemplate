@@ -14,11 +14,12 @@
 
 1. cleanwebpackplugin会有问题, 因为多个项目公用的base文件如果引入这个, 那么后执行的配置就会删除前面配置的输出, 使用命令行删除目录, 可以解决这个问题
 
-```
+```sh
 rm -rf
-
 # package.json
-
+"make": "rm -rf exroot/dist && webpack --config webpack.dev.coffee && chmod u+x ./exroot/dist/bin.js",
 ```
 
 2. optimization:    runtimeChunk: 'single', 这个也会有问题, runtime.js会互相覆盖, 注释掉他就可以解决问题.
+3. 其实这两个问题都是因为共用了输出目录, 这个错了, 应该用不同的输出目录.
+4. 因此, cmd/html分别target:node和devserver

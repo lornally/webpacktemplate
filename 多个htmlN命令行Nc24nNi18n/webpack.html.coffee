@@ -1,4 +1,6 @@
 # html server配置文件
+path = require('path')
+
 {merge} = require 'webpack-merge'
 base = require './webpack.base.coffee'
 HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -37,6 +39,13 @@ module.exports = merge base,
 			'./src/b1.js'
 			'./src/b1.sass'
 		]
+		rei: [ # 真正的示例代码
+			'./src/react.cs'
+			'./src/react.sass'
+			'./src/react.module.sass'
+
+		]
+	output: path: path.resolve __dirname,'exroot/html'
 	plugins: [
 		new HtmlWebpackPlugin
 			hash: true
@@ -57,5 +66,12 @@ module.exports = merge base,
 			template: './src/b1.ejb', # relative path to the HTML files
 			filename: 'b1.html', # output HTML files
 			chunks: ['b1'] # respective JS files
+		new HtmlWebpackPlugin
+			hash: true
+			favicon: './favicon.ico'
+			template: './src/react.ejb',
+			filename: 'index.html',
+			chunks: ['rei']
 		new MiniCssExtractPlugin
 	]
+	devServer: contentBase: './exroot/html'

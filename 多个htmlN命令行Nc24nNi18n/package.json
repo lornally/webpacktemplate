@@ -25,8 +25,8 @@
 		"build": "webpack --config webpack.prod.coffee",
 		"dev": "webpack serve --config webpack.dev.coffee",
     "prod": "webpack serve --config webpack.prod.coffee",
-		"make": "rm -rf exroot/dist && webpack --config webpack.dev.coffee && chmod u+x ./exroot/dist/bin.js",
-		"cmd": "webpack --config webpack.cmd.coffee && chmod u+x ./exroot/dist/bin.js",
+		"make": "webpack --config webpack.dev.coffee && chmod u+x ./exroot/cmd/bin.js",
+		"cmd": "webpack --config webpack.cmd.coffee && chmod u+x ./exroot/cmd/bin.js",
     "watch": "webpack --watch --config webpack.dev.coffee"
   },
   "devDependencies": {
