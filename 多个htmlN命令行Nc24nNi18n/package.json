@@ -1,7 +1,7 @@
 {
   "name": "cn",
 	"version": "1.0.0",
-	"bin": "./exroot/dist/bin.js",
+	"bin": "./exroot/cmd/bin.js",
   "description": "数据的可视化展示",
   "main": "src/index.js",
   "repository": {

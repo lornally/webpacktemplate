@@ -1,8 +1,8 @@
 # 基础的webpack配置文件, 不含html和cmd的单独的设置
-path = require('path')
-{ CleanWebpackPlugin } = require('clean-webpack-plugin')
-HtmlWebpackPlugin = require('html-webpack-plugin')
-MiniCssExtractPlugin = require('mini-css-extract-plugin')
+path = require 'path'
+{ CleanWebpackPlugin } = require 'clean-webpack-plugin'
+HtmlWebpackPlugin = require 'html-webpack-plugin'
+MiniCssExtractPlugin = require 'mini-css-extract-plugin'
 
 module.exports =
 

@@ -1,5 +1,7 @@
 # node cmd配置文件
-path = require('path')
+path = require 'path'
+glob = require 'glob'
+
 
 {merge} = require 'webpack-merge'
 base = require './webpack.base.coffee'

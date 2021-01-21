@@ -53,3 +53,10 @@ entry:
 	]
 ```
 
+###### 配合serve时, 没有任何页面了
+
+```sh
+# package.json文件
+"dev": "webpack serve --config webpack.dev.coffee",
+```
+

@@ -1,5 +1,5 @@
 #生产环境用的配置文件
-{ CleanWebpackPlugin } = require('clean-webpack-plugin')
+{ CleanWebpackPlugin } = require 'clean-webpack-plugin'
 
 {merge} = require 'webpack-merge'
 html = require './webpack.html.coffee'

@@ -199,29 +199,6 @@ externals:[ # 把lodash声明为外部的环境依赖, 这样运行库的时候�
 	]
 ```
 
-###### 为了测试打包多个js文件
-
-```coffeescript
-entry: 
-	app:  import: './app.js', dependOn: 'react-vendors'  # 这个trunk依赖下面一个
-  'react-vendors': ['react', 'react-dom', 'prop-types'] # 这里数组是这一个chunk的组成
-  # 如果entry直接就传入一个字符串或字符串数组，chunk 会被命名为 main
-```
-
-- 使用glob可以, 参考: 打包一个库项目.md, lib库项目
-
-```sh
- npm install webpack-glob --save-dev #安装glob
-```
-
-```coffeescript
-entry:
-  glob.sync('./src/**.cs').reduce (obj, el)->
-    obj[path.parse(el).name] = el
-    obj
-  ,{}
-```
-
 ###### resolve可以让路径更合理
 
 - 设置resolve可以让路径合理, 不至于lib路径稍微调整一下, 整体路径就有很大调整 
