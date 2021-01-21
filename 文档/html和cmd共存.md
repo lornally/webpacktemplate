@@ -86,7 +86,7 @@ yarn link
 
 
 
-### 详细说明
+### cmd详细说明
 
 ###### package.json的结构
 
@@ -204,4 +204,38 @@ console.log("__dirname = " + __dirname);
 console.log("参数",process.argv);
 ```
 
-###### 
+### html的写法
+
+```js
+const HtmlWebpackPlugin=require('html-webpack-plugin');
+//html的处理,1/2 官方推荐使用插件, 这个用在webpack.config.js, 可以用模板
+const webpackdevconfig={ 
+	module: {
+		rules: [
+			{
+				test: /\.(png|svg|jpg|gif)$/,
+				use: [
+					//html的处理方法, 2/2,或者可以用file-loader也可以copy过去.
+					'file-loader',
+				],
+			},
+		]
+	},
+	plugins: [
+		new CleanWebpackPlugin(),
+		//CleanWebpackPlugin, 因为他的存在, 所以git控制的目录要在上一层.
+		new HtmlWebpackPlugin({
+			title: '管理缓存',
+		}),
+	],
+	output: {
+		filename: '[name].[contenthash].js',
+		//使用filename: '[name].[contenthash].js', 保证有更新就刷缓存. 
+		path: path.resolve(__dirname,'output/online'),
+		//这里output中的文件不会被自动清除, 所以可以设置为git控制的目录.
+		publicPath: '/',
+	},
+	
+
+};
+```

@@ -615,3 +615,18 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
 - 昨天的问题其实是输出目录的问题, html和cmd要分开 done
 - 继续react
 
+###### 0121
+
+- 在react配合i18n的道路上遇到了.问题.
+- webpack dev server 配合html-webpack-plugin结果不正常.
+- show这个项目看一下是否能解决上面的问题, 但是编译不通过.
+- 原因是mcktools没有分开cmd和html的编译, 导致引入的项目编译不通过.
+- 因此, 需要先把mcktools的编译结果分开. 这个我熟练啊. 顺手把dev和prod也分开吧.
+- 由此可见webpack项目基本要素:
+  - dev和prod分开
+  - html和cmd分开
+  - 多html, 多js支持
+  - react支持
+  - c24n/i18n支持
+
+1. mcktools的dev/prod分离, 以及html/cmd分离

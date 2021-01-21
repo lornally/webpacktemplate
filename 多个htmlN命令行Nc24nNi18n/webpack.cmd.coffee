@@ -12,6 +12,7 @@ module.exports = merge base,
 		new webpack.BannerPlugin
 			banner: '#!/usr/bin/env node'
 			raw: true
+			test: ['bin','test','cmd']
 	]
 	entry:{
 		bin: './src/test.cs'
