@@ -35,7 +35,11 @@ rm -rf
    			test: ['bin','test','cmd']
    ```
 
-   
+6. 因为web下面会缺乏node的很多库, 因此有些输出必须是cmd only. 所以, 
+
+   1. entry要区分输出内容, 
+   2. output要区分输出目录
+   3. coffee的index文件也要分开indexcmd和indexhtml
 
 ###### 自己的参考
 
@@ -239,3 +243,62 @@ const webpackdevconfig={
 
 };
 ```
+
+### 库的处理
+
+作为库项目还有其特殊性:
+
+1. 库的index.cs作为模块输出, 也要区分cmd和html, 相应的webpack里面要配置entry: index
+2. 同样resolve: alias: mlib: 也要区分cmd和html
+
+###### 库项目的示例
+
+示例配置代码
+
+```coffeescript
+# node cmd配置文件
+path = require 'path'
+glob = require 'glob'
+{merge} = require 'webpack-merge'
+base = require './webpack.base.coffee'
+webpack = require 'webpack'
+module.exports = merge base,
+	plugins: [
+		new webpack.BannerPlugin
+			banner: '#!/usr/bin/env node'
+			raw: true
+			test: ['bin','test','cmd']
+	]
+	entry:{
+		bin: './src/test.cs'
+		index: './src/indexcmd.cs'
+		(glob.sync('./src/**/**.cs').reduce (obj, el)->
+			obj[path.parse(el).name] = el
+			obj
+		,{})...
+	}
+	output: path: path.resolve __dirname,'exroot/cmd'
+	target: 'node'
+	resolve: alias: mlib: path.resolve(__dirname, './exroot/cmd')
+```
+
+示例indexcmd.cs
+
+```coffeescript
+import icore from './indexcore.cs'
+#export {default as file} from 	'./file.cs'
+import file from './file.cs'
+export default {
+	file
+	icore...
+}
+```
+
+###### 引入这个库的写法
+
+```coffeescript
+resolve:
+		alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/exroot/html'
+		extensions: ['.cs', '.coffee', '.mjs', '.js']
+```
+

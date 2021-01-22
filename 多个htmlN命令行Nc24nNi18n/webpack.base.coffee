@@ -3,9 +3,14 @@ path = require 'path'
 { CleanWebpackPlugin } = require 'clean-webpack-plugin'
 HtmlWebpackPlugin = require 'html-webpack-plugin'
 MiniCssExtractPlugin = require 'mini-css-extract-plugin'
+nodeExternals = require 'webpack-node-externals'
+
 
 module.exports =
-
+	externals:[
+		nodeExternals() #这个很有用, 排除所有node_modules
+		/^library\/.+$/
+	]
 	module:
 		rules: [
 			{
@@ -28,6 +33,8 @@ module.exports =
 		],
 	output:
 		filename: '[name].js'
+		library: 'mlib' # 指定library的name
+		libraryTarget: 'umd' # 指定library编译的兼容性, common, es6, amd, umd, link...
 		# path: path.resolve __dirname,'exroot/dist'
 		# 不同的内容应该输出到不同的目录. 不然无法正常运行
 		publicPath: '.'
