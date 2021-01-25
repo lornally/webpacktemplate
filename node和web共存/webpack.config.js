@@ -1,29 +1,52 @@
-const path = require('path');
-const serverConfig = {
-	mode: 'development',
-	devtool: 'inline-source-map',
-	target: 'node',
-	devServer: {
-		contentBase: './dist',
-	},
+(function() {
+  var CleanWebpackPlugin, HtmlWebpackPlugin, cmd, html, path;
 
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'lib.node.js'
-  }
-};
+  path = require('path');
 
-const clientConfig = {
-	entry: {
-    d1: './src/d1.js',
-    d2: './src/d2.js'
-  },
+  HtmlWebpackPlugin = require('html-webpack-plugin');
 
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-		filename: '[name].[contenthash].js',
-  }
-};
+  ({CleanWebpackPlugin} = require('clean-webpack-plugin'));
 
-module.exports = [ serverConfig, clientConfig ];
+  cmd = {
+    mode: 'development',
+    devtool: 'inline-source-map',
+    target: 'node',
+    output: {
+      path: path.resolve(__dirname, 'dist/cmd'),
+      filename: 'lib.node.js'
+    }
+  };
 
+  html = {
+    mode: 'development',
+    devtool: 'inline-source-map',
+    entry: {
+      d1: './src/d1.js',
+      d2: './src/d2.js'
+    },
+    output: {
+      path: path.resolve(__dirname, 'dist/html'),
+      filename: '[name].[contenthash].js'
+    },
+    plugins: [
+      new CleanWebpackPlugin({
+        cleanStaleWebpackAssets: false
+      }),
+      new HtmlWebpackPlugin({
+        title: 'Development'
+      })
+    ],
+    devServer: {
+      contentBase: './dist/html'
+    }
+  };
+
+  module.exports = [html, cmd];
+
+  //module.exports = [ cmd, html ]
+
+}).call(this);
+
+
+//# sourceMappingURL=webpack.config.js.map
+//# sourceURL=coffeescript

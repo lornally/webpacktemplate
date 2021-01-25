@@ -10,7 +10,6 @@ module.exports = merge base,
 	module:
 		rules: [
 			{
-
 				test: /\.((c|sa|sc)ss)$/i
 				exclude: /node_modules/
 				use: [
@@ -23,9 +22,9 @@ module.exports = merge base,
 					}
 					'postcss-loader'
 					'sass-loader'
-				],
-			},
-		],
+				]
+			}
+		]
 	entry:
 		pop: [
 			'./src/pop.js'
@@ -49,35 +48,18 @@ module.exports = merge base,
 	plugins: [
 		new HtmlWebpackPlugin
 			hash: true
-			favicon: './favicon.ico'
-			template: './src/pop.ejs'# relative path to the HTML files
-			filename: 'pop.html' # output HTML files
-			chunks: ['pop'] # respective JS files
-
-		new HtmlWebpackPlugin
-			hash: true
-			favicon: './favicon.ico'
-			template: './src/a1.ejs'# relative path to the HTML files
-			filename: 'a1.html'# output HTML files
-			chunks: ['a1'] # respective JS files
-		new HtmlWebpackPlugin
-			hash: true
-			favicon: './favicon.ico'
-			template: './src/b1.ejs' # relative path to the HTML files
-			filename: 'b1.html' # output HTML files
-			chunks: ['b1'] # respective JS files
-		new HtmlWebpackPlugin
-			hash: true
-			favicon: './favicon.ico'
-			template: './src/rei.ejs'
-			filename: 'index.html'
+			favicon: path.resolve __dirname,'./favicon.ico'
+			template: path.resolve __dirname, './src/rei.ejs'
+			filename: path.resolve __dirname, './exroot/html/index.html'
 			chunks: ['rei']
-			cache: false
+			cache: false #todo debug
 		new MiniCssExtractPlugin
 	]
 	devServer:
-		contentBase: './exroot/html'
-		watchContentBase: true
+		contentBase: path.resolve __dirname, './exroot/html'
+		watchContentBase: true # todo debug
 		port: 8080
 
 	resolve: alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/indexhtml.cs'
+	mode: 'development'
+	devtool: 'inline-source-map'

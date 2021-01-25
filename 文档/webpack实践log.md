@@ -630,3 +630,38 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
   - c24n/i18n支持
 
 1. mcktools的dev/prod分离, 以及html/cmd分离
+
+###### 0122
+
+- 编译可以通过, 但是, 貌似引入import出了问题
+- 目前两个大问题:
+  1. import不正常, 解决了
+  2. devserve也不太正常
+- 用webpack里面的多页面项目试验一下
+- import问题由两个原因组成 done
+  - 不能引入编译好的文件, 如果本地引入, 必须引入源文件. 
+  - 汇总文件的export default会有问题, 具体参见: html和cmd和库.md
+- devserver问题, 不展示页面只展示目录.
+  - 问题找到了模板文件的扩展名ejs, 而不是ejb. 神啊....
+  - 这个问题意外的难缠. 找一个正常项目逐步实施多html项目的设置
+  - 清空html文档, 理一下思路.
+  - 然后从web和cmd共存项目入手测试dev serve
+
+###### 0123
+
+- 清空html文档, 理一下思路.
+- 然后从web和cmd共存项目入手测试dev serve
+  -  有点迷茫要重新回顾下webpack的文档
+
+###### 0124
+
+- 睡得太多, 头疼了, 洗澡之后, 睡醒了就该起床的. 最近一个月, 太颓废了. 
+
+###### 0125
+
+- 清空tab, done
+- todo 只要module.exports=array, 那么devserver就会不正常. 已经发帖问官方了, 此问题解决需要更新多份文档
+  - html, cmd, 库
+  - 多个html
+- 继续react和c24n
+

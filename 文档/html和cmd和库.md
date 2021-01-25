@@ -12,21 +12,23 @@
 
 ###### 问题
 
-1. cleanwebpackplugin会有问题, 因为多个项目公用的base文件如果引入这个, 那么后执行的配置就会删除前面配置的输出, 使用命令行删除目录, 可以解决这个问题
+1. 共用output目录后患无穷
 
-```sh
-rm -rf
-# package.json
-"make": "rm -rf exroot/dist && webpack --config webpack.dev.coffee && chmod u+x ./exroot/dist/bin.js",
-```
+   1. cleanwebpackplugin会有问题, 因为多个项目公用的base文件如果引入这个, 那么后执行的配置就会删除前面配置的输出, 使用命令行删除目录, 可以解决这个问题
 
-2. optimization:    runtimeChunk: 'single', 这个也会有问题, runtime.js会互相覆盖, 注释掉他就可以解决问题.
+      ```sh
+      rm -rf
+      # package.json
+      "make": "rm -rf exroot/dist && webpack --config webpack.dev.coffee && chmod u+x ./exroot/dist/bin.js",
+      ```
 
-3. 其实这两个问题都是因为共用了输出目录, 这个错了, 应该用不同的输出目录.
+   2. optimization:    runtimeChunk: 'single', 这个也会有问题, runtime.js会互相覆盖, 注释掉他就可以解决问题.
 
-4. 因此, cmd/html分别target:node和devserver
+   3. 其实这两个问题都是因为共用了输出目录, 这个错了, 应该用不同的输出目录.
 
-5. html项目不能识别shebang, 因此要指定那些模块需要生成shebang
+3. cmd/html分别target:node和devserver
+
+4. html项目不能识别shebang, 因此要指定那些模块需要生成shebang
 
    ```coffeescript
    new webpack.BannerPlugin
@@ -35,11 +37,10 @@ rm -rf
    			test: ['bin','test','cmd']
    ```
 
-6. 因为web下面会缺乏node的很多库, 因此有些输出必须是cmd only. 所以, 
+5. 因为web下面会缺乏node的很多库(本文后续有库的代码示例), 因此有些输出必须是cmd only. 
 
    1. entry要区分输出内容, 
-   2. output要区分输出目录
-   3. coffee的index文件也要分开indexcmd和indexhtml
+   3. coffee的index文件也要分开indexcmd.cs和indexhtml.cs
 
 ###### 自己的参考
 
@@ -85,10 +86,6 @@ yarn
 yarn make
 yarn link
 ```
-
-
-
-
 
 ### cmd详细说明
 
@@ -297,8 +294,31 @@ export default {
 ###### 引入这个库的写法
 
 ```coffeescript
+# 本地引入必须引入源文件
+resolve: alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/indexhtml.cs'
+
+# 错误的写法: 直接引入编译好的文件是不可以的
 resolve:
 		alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/exroot/html'
 		extensions: ['.cs', '.coffee', '.mjs', '.js']
+```
+
+###### cs的库export的index的写法
+
+```coffeescript
+# indexcmd示例
+export * from './indexcore.cs'
+
+
+# 有问题的写法, 如果indexcore.cs有修改那么这个indexcmd.cs也必须同步修改.
+export {	color,	random, 	time} from './indexcore.cs'
+export {default as file} from 	'./file.cs'
+export {default as cmd} from 	'./cmd.cs'
+
+export default {# 这句也是错误的, 会报错file等等未定义
+	file
+	cmd
+	color,	random, 	time
+}
 ```
 

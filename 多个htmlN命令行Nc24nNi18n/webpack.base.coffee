@@ -30,11 +30,11 @@ module.exports =
 				test: /\.cson$/
 				use: loader: 'cson-loader'
 			}
-		],
+		]
 	output:
 		filename: '[name].js'
-		library: 'mlib' # 指定library的name
-		libraryTarget: 'umd' # 指定library编译的兼容性, common, es6, amd, umd, link...
+		#library: 'mh' # 指定library的name
+		#libraryTarget: 'umd' # 指定library编译的兼容性, common, es6, amd, umd, link...
 		# path: path.resolve __dirname,'exroot/dist'
 		# 不同的内容应该输出到不同的目录. 不然无法正常运行
 		publicPath: '.'
@@ -42,11 +42,11 @@ module.exports =
 		new CleanWebpackPlugin
 	]
 	optimization:
-		runtimeChunk: 'single',
+		runtimeChunk: 'single'
 		splitChunks: cacheGroups: vendor:
 			test: /[\\/]node_modules[\\/]/
 			name: 'vendors'
 			chunks: 'all'
-	resolve: # 解决自动查找index.cs而不是index.js的问题 #lib的配置
-		alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/'
-		extensions: ['.cs', '.coffee', '.mjs', '.js']
+	#resolve: # 解决自动查找index.cs而不是index.js的问题 #lib的配置
+	#	alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/'
+	#	extensions: ['.cs', '.coffee', '.mjs', '.js']

@@ -23,3 +23,4 @@ module.exports = merge base,
 	}
 	output: path: path.resolve __dirname,'exroot/cmd'
 	target: 'node'
+	resolve: alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/indexcmd.cs'
