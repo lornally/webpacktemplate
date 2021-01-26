@@ -685,5 +685,13 @@ interopRequireWildcard":1 Uncaught ReferenceError: require is not defined
     at webpackJsonpCallback (jsonp chunk loading:53)
     at rei.js?8db1d7f0395cecc37478:1
 #Stack Overflow说, 删除node_modules
+
+
+神啊竟然是这个配置引起了问题:
+nodeExternals = require 'webpack-node-externals'
+externals:[
+  nodeExternals() #这个很有用, 排除所有node_modules
+  /^library\/.+$/
+]
 ```
 

@@ -7,10 +7,10 @@ nodeExternals = require 'webpack-node-externals'
 
 
 module.exports =
-	externals:[
-		nodeExternals() #这个很有用, 排除所有node_modules
-		/^library\/.+$/
-	]
+	#externals:[
+	#	nodeExternals() #这个很有用, 排除所有node_modules
+	#	/^library\/.+$/
+	#]
 	module:
 		rules: [
 			{

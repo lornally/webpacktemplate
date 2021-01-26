@@ -70,7 +70,7 @@ module.exports = merge base,
 			template: './src/rei.ejs'
 			filename: 'index.html'
 			chunks: ['rei']
-			cache: false
+			#cache: false
 		new MiniCssExtractPlugin
 	]
 	devServer:

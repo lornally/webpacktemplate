@@ -1,11 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+	<title><%= 'v'+ __webpack_hash__ %></title>
+	<!-- "title + VERSION" + -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<!--<title>版本识别码: ?t=334</title>-->
+	<script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=331a358dfab40f1643316d0f8598f534"></script>
+
 </head>
+
 <body>
-	indenenenenenenenenen
+	<!-- 此处注意, 高德很傻, 这个id必须是这个才可以, 不能改 -->
+	<div id="container"></div>
+
+	<!-- 注意ejs是模板文件, 在webpack serve的过程中, 更改ejs并不触发更新 -->
+	<div id="reactcontainer">测试一下自动更新</div>
+
+	<!--<main id="floatingpanel">
+			
+	<article class="sh" >
+		<span onclick="floatingpanel.style.display='';">显示</span>
+		<span onclick="floatingpanel.style.display='none';">隐藏</span>
+	</article>
+		<label id="fileinput" class="fileinput" for="para">
+			<input type="file" placeholder="选择/拖动参数文件到这里" name="参数作为文件传入" class="visuallyhidden">
+			<span>选择/拖动参数文件到这里</span>
+			<span id="fileinputdataname">输入文件: </span>
+			<span id="fileresdataname">结果文件:</span>
+			<span id="fileresdataname">api地址: </span>
+		</label>
+		<article class="viewconfig">
+			<h6>显示内容</h6>
+			<span class="box " id="showaddress" type="" key='' >显示地址</span>
+			<span class="box " id="showtime" type="" key='' >显示时效</span>
+			<span class="box  testview" id="showrelate"  type="" key=''>显示关系</span>
+			<span class="button " id="clearmap" key='' type="" >清空地图</span>
+		</article>
+
+		<article class="group" id="group">
+			<section class="showmapsection" id="fileinputdata">
+				<h6>输入文件: </h6>
+				<span class="radio " key="point" type="fileinputdata">显示</span>
+			</section>
+			<section class="showmapsection" id="fileresdata">
+				<h6>结果文件: </h6>
+				<div>			
+					<div>
+						<span class="radio " key="hardgroup" type="fileresdata">可行解</span>
+						<span class="radio " key="basegroup" type="fileresdata">底线解</span>
+					</div>
+					<div>
+						<span class="radio " key="nogroup" type="fileresdata">分组</span>
+						<span class="radio " key="itemgroup" type="fileresdata">个数分组</span>
+						<span class="radio " key="milegroup" type="fileresdata">里程分组</span>
+					</div>
+					<span class="radio testview" key="signleroottree" type="fileresdata">树</span>
+				</div>
+			</section>
+			<section class="showmapsection" id="apiresdata">
+				<h6>api解: </h6>
+
+				<div>
+					<div>
+						<span class="radio " key="point" type="apiresdata">显示点</span>
+						<span class="radio " key="lastpoint" type="apiresdata">剩余点</span>
+
+
+					</div>
+					<div>
+						<span class="radio " key="hardgroup" type="apiresdata">可行解</span>
+						<span class="radio " key="basegroup" type="apiresdata">底线解</span>
+					</div>
+					<div>
+						<span class="radio " key="nogroup" type="apiresdata">分组</span>
+						<span class="radio " key="itemgroup" type="apiresdata">个数分组</span>
+						<span class="radio " key="milegroup" type="apiresdata">里程分组</span>
+					</div>
+					<span class="radio  testview" key="signleroottree" type="apiresdata">自然树</span>
+				</div>
+			</section>
+		</article>
+		<article class='op'>
+
+	
+			<label for="groupbyitem">
+				每组件数:
+				<input id="groupbyitem" value="20" placeholder="每组个数分组+1模式">
+			</label>
+	
+			<label>求解点总数: <span id="pointquantity"></span></label>
+			<label for="pointquantitylimit">
+				限制数量:
+				<input id="pointquantitylimit" value="0" placeholder="个数">
+				<span class="button " id="solute" type="" key="">求解</span>
+			</label>
+		</article>
+		<article class='  testview'>
+		
+			<textarea id="apipara" value=""  cols="30" rows="13" placeholder="api参数">
+				api参数
+				
+			</textarea>
+			<textarea id="apires" value=""  cols="30" rows="13" placeholder="api结果">api结果
+				
+			</textarea>
+		</article>
+	</main>-->
 </body>
+<script>
+	/**
+	* 处理高德图层  这个必须在顶层
+	* 
+	* */
+	const map=new AMap.Map('container',{
+		//layers: [maplayer], //当只想显示标准图层时layers属性可缺省
+		mapStyle: 'amap://styles/dark', //设置地图的显示样式
+		showLabel: false, //不显示地图文字标记
+		center: [109,34.2],
+		zoom: 11
+	});
+	window.map=map;
+</script>
+
 </html>
