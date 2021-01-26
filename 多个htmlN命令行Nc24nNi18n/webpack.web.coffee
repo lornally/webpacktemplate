@@ -42,8 +42,6 @@ module.exports = merge base,
 		rei: [ # 真正的示例代码
 			'./src/rei.cs'
 			'./src/rei.sass'
-			'./src/rei.module.sass'
-
 		]
 	output: path: path.resolve __dirname,'exroot/web'
 	plugins: [

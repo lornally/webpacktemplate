@@ -7,13 +7,7 @@ import ReactDOM from 'react-dom'
 
 # 主面板
 Floatpannel= (i) ->
-	
-	
-
-	<main className={style.ppp}>
-			{"应该被替换掉了吧"}
-	</main>
-
+	<h1>Hello</h1>
 
 
 
