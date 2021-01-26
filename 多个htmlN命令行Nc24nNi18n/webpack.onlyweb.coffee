@@ -1,3 +1,4 @@
+# 为了解决webpack serve 的问题的临时config
 path = require('path')
 { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
@@ -9,7 +10,7 @@ nodeExternals = require 'webpack-node-externals'
 #先按照测试环境配置, 生产环境是不一样的.
 module.exports =
 	#externals:[
-	#	nodeExternals() #这个很有用, 排除所有node_modules
+	#	nodeExternals() #这个很有用, 排除所有node_modules, 但是会引起web serve报错
 	#	#/^library\/.+$/
 	#]
 	mode: 'development'

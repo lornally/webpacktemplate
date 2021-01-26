@@ -8,7 +8,7 @@ nodeExternals = require 'webpack-node-externals'
 
 module.exports =
 	#externals:[
-	#	nodeExternals() #这个很有用, 排除所有node_modules
+	#	nodeExternals() #这个很有用, 排除所有node_modules, 但是会引起webpack serve错误, 因此注释掉
 	#	/^library\/.+$/
 	#]
 	module:

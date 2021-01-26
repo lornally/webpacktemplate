@@ -1,4 +1,4 @@
-# html server配置文件
+# 为了解决webpack serve问题临时的config
 path = require('path')
 
 {merge} = require 'webpack-merge'

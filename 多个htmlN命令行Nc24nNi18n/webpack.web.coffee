@@ -68,14 +68,14 @@ module.exports = merge base,
 			hash: true
 			favicon: './favicon.ico'
 			template: './src/rei.ejs'
-			filename: 'index.html'
+			#filename: 'index.html' 默认就是入口, 不需要
 			chunks: ['rei']
 			#cache: false
 		new MiniCssExtractPlugin
 	]
-	devServer:
-		contentBase: './exroot/web'
-		watchContentBase: true
-		port: 8080
+	#devServer: 默认就是这个, 不需要
+	#	contentBase: './exroot/web'
+	#	watchContentBase: true
+	#	port: 8080
 
 	resolve: alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/indexweb.cs'

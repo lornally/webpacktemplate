@@ -27,8 +27,8 @@ export default {
 
 
 
-import str from './local/lang.cson'
-import c24n from './c24n.cs'
+#import str from './local/lang.cson'
+#import c24n from './c24n.cs'
 
 # 如果使用默认local, 则无需设置
 #c24n.setlocal 'en'
