@@ -669,3 +669,21 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
 	output: publicPath: '.' # 这个也可能引起webpack serve不正常
 ```
 
+###### 0126
+
+- 遇到了神奇的bug;
+
+```sh
+module.exports = require("@babel/runtime/helpers/interopRequireWildcard");;
+
+interopRequireWildcard":1 Uncaught ReferenceError: require is not defined
+    at Object.@babel/runtime/helpers/interopRequireWildcard (interopRequireWildcard":1)
+    at __webpack_require__ (bootstrap:18)
+    at Object../src/rei.cs (rei.js?8db1d7f0395cecc37478:12)
+    at __webpack_require__ (bootstrap:18)
+    at checkDeferredModulesImpl (jsonp chunk loading:71)
+    at webpackJsonpCallback (jsonp chunk loading:53)
+    at rei.js?8db1d7f0395cecc37478:1
+#Stack Overflow说, 删除
+```
+

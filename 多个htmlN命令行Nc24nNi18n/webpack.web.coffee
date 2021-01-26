@@ -45,7 +45,7 @@ module.exports = merge base,
 			'./src/rei.module.sass'
 
 		]
-	output: path: path.resolve __dirname,'exroot/html'
+	output: path: path.resolve __dirname,'exroot/web'
 	plugins: [
 		new HtmlWebpackPlugin
 			hash: true
@@ -76,8 +76,8 @@ module.exports = merge base,
 		new MiniCssExtractPlugin
 	]
 	devServer:
-		contentBase: './exroot/html'
+		contentBase: './exroot/web'
 		watchContentBase: true
 		port: 8080
 
-	resolve: alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/indexhtml.cs'
+	resolve: alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/indexweb.cs'

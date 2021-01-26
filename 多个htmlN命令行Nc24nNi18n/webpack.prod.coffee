@@ -2,8 +2,8 @@
 { CleanWebpackPlugin } = require 'clean-webpack-plugin'
 
 {merge} = require 'webpack-merge'
-html = require './webpack.html.coffee'
-module.exports=merge html,
+web = require './webpack.web.coffee'
+module.exports=merge web,
 	mode: 'production'
 	#plugins: [
 	#	new CleanWebpackPlugin
