@@ -1,8 +1,0 @@
-# cson的示例
-'黑化':
-	cn: '黑化'
-	en: 'dark'
-	info: '按钮上面的文字'
-'强暴黑':
-	cn: '强暴黑'
-	en: 'force dark'

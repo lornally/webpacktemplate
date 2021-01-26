@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 
 
 import str from './local/lang.cson'
-import c24n from './c24n.cs'
+import {c24n} from 'mlib'
 
 # 如果使用默认local, 则无需设置
 c24n.setlocal 'en'
