@@ -44,22 +44,22 @@ module.exports = merge base,
 			'./src/rei.module.sass'
 
 		]
-	output: path: path.resolve __dirname,'exroot/html'
+	output: path: path.resolve __dirname,'exroot/web'
 	plugins: [
 		new HtmlWebpackPlugin
-			hash: true
+			#hash: true
 			favicon: path.resolve __dirname,'./favicon.ico'
 			template: path.resolve __dirname, './src/rei.ejs'
-			filename: path.resolve __dirname, './exroot/html/index.html'
+			filename: path.resolve __dirname, './exroot/web/index.html'
 			chunks: ['rei']
-			cache: false #todo debug
+			#cache: false #todo debug
 		new MiniCssExtractPlugin
 	]
-	devServer:
-		contentBase: path.resolve __dirname, './exroot/html'
-		watchContentBase: true # todo debug
-		port: 8080
+	devServer: contentBase:  './exroot/web'
+		#watchContentBase: true # todo debug
+		#port: 8080
 
-	resolve: alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/indexhtml.cs'
+	resolve: alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/indexweb.cs'
 	mode: 'development'
 	devtool: 'inline-source-map'
+

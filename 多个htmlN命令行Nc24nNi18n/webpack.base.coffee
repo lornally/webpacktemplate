@@ -37,7 +37,7 @@ module.exports =
 		#libraryTarget: 'umd' # 指定library编译的兼容性, common, es6, amd, umd, link...
 		# path: path.resolve __dirname,'exroot/dist'
 		# 不同的内容应该输出到不同的目录. 不然无法正常运行
-		publicPath: '.'
+		#publicPath: '.'
 	plugins: [
 		new CleanWebpackPlugin
 	]

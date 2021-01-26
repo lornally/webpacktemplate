@@ -15,7 +15,7 @@ cmd =
 
 
 
-html =
+web =
 	mode: 'development'
 	devtool: 'inline-source-map'
 	entry:
@@ -24,15 +24,15 @@ html =
 	
 
 	output:
-		path: path.resolve __dirname, 'dist/html'
+		path: path.resolve __dirname, 'dist/web'
 		filename: '[name].[contenthash].js'
 	plugins: [
 		new CleanWebpackPlugin cleanStaleWebpackAssets: false
 		new HtmlWebpackPlugin	title: 'Development'
 	]
-	devServer: contentBase: './dist/html'
+	devServer: contentBase: './dist/web'
 
-module.exports=[html,cmd]
+module.exports=[web,cmd]
 
-#module.exports = [ cmd, html ]
+#module.exports = [ cmd, web ]
 

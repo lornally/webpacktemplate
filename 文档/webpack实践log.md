@@ -665,3 +665,7 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
   - 多个html
 - 继续react和c24n
 
+```sh
+	output: publicPath: '.' # 这个也可能引起webpack serve不正常
+```
+

@@ -41,6 +41,17 @@
 
    1. entry要区分输出内容, 
    3. coffee的index文件也要分开indexcmd.cs和indexhtml.cs
+   
+5. webpack serve不显示html而是显示目录, 有两个原因
+
+   1. module.exports了array
+   2. publicpath设置错误
+
+   ```sh
+   	output: publicPath: '.' # 这个也可能引起webpack serve不正常
+   ```
+
+   
 
 ###### 自己的参考
 
