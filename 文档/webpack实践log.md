@@ -602,8 +602,6 @@ Module not found: Error: Can't resolve '@babel/runtime/helpers/interopRequireDef
 
 - c24n coffeeinternathionalization
 
-
-
 ###### 0119
 
 - 完成了c24n
@@ -695,3 +693,4 @@ externals:[
 ]
 ```
 
+- done react with c24n

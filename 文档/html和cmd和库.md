@@ -322,7 +322,7 @@ export * from './indexcore.cs'
 
 
 # 有问题的写法, 如果indexcore.cs有修改那么这个indexcmd.cs也必须同步修改.
-export {	color,	random, 	time} from './indexcore.cs'
+export {color, random, time} from './indexcore.cs'
 export {default as file} from 	'./file.cs'
 export {default as cmd} from 	'./cmd.cs'
 
@@ -331,5 +331,24 @@ export default {# 这句也是错误的, 会报错file等等未定义
 	cmd
 	color,	random, 	time
 }
+```
+
+###### 库要导出多个子库
+
+- 库项目的package.json
+
+```json
+"main":"./exroot/core/index.js",
+"exports": {
+  ".": "./exroot/core/index.js",
+  "./cmd": "./exroot/cmd/index.js",
+  "./web": "./exroot/web/index.jsb"
+},
+```
+
+- 对这个项目做引入
+
+```js
+import {file} from 'mcktools/cmd'
 ```
 
