@@ -74,7 +74,7 @@ module.exports = merge base,
 		new MiniCssExtractPlugin
 	]
 	#devServer: 默认就是这个, 不需要
-	#	contentBase: './exroot/web'
+	#	contentBase: './exroot/web', publicPath: '/exroot/web'
 	#	watchContentBase: true
 	#	port: 8080
 

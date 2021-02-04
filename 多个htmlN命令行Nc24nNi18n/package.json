@@ -22,14 +22,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
 		"webpack": "webpack",
-		"build": "webpack --config webpack.prod.coffee",
-		"dev": "webpack serve --config webpack.dev.coffee",
 		"web": "webpack serve --config webpack.p.coffee",
 		"onlyweb": "webpack --config webpack.onlyweb.coffee",
 		"c": "webpack --config webpack.p.coffee",
+		"cmd": "webpack --config webpack.cmd.coffee && chmod u+x ./exroot/cmd/bin.js",
+		
+		"build": "webpack --config webpack.prod.coffee",
+		"dev": "webpack serve --config webpack.dev.coffee --config-name site",
+	
     "prod": "webpack serve --config webpack.prod.coffee",
 		"make": "webpack --config webpack.dev.coffee && chmod u+x ./exroot/cmd/bin.js",
-		"cmd": "webpack --config webpack.cmd.coffee && chmod u+x ./exroot/cmd/bin.js",
+
     "watch": "webpack --watch --config webpack.dev.coffee"
   },
   "devDependencies": {

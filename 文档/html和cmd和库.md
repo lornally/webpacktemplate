@@ -44,14 +44,35 @@
    
 5. webpack serve不显示html而是显示目录, 有两个原因
 
-   1. module.exports了array
-   2. publicpath设置错误
+   1. module.exports了array, 解决, 需要package.json和webpack.config.coffee配合
 
    ```sh
-   	output: publicPath: '.' # 这个也可能引起webpack serve不正常
+   # package.json, 这里指明需要site参数
+   "site": "webpack serve --config-name site",
+   # 更复杂一点同时需要指明配置文件的例子: 
+   "dev": "webpack serve --config webpack.dev.coffee --config-name site",
+   
+   # webpack中配置site参数就解决了.
+   html =
+   	name: 'site'
+   # 更复杂一点需要merge的例子:
+   devweb=merge web,dev,
+   	name: 'site'
+   
+   # 此时exports array完全没有问题.
+   module.exports = [ cmd, html ]
    ```
 
-   
+   2. publicpath设置错误, 完全可以不设置(使用默认值没毛病)
+
+   ```sh
+   output: publicPath: '.' # 这个也可能引起webpack serve不正常
+   # 默认可以不设置, 就是正确的例如这个就是默认值: 
+   devServer:
+   	contentBase: './dist/html'
+     publicPath: '/dist/html'
+   ```
+
 
 ###### 自己的参考
 
