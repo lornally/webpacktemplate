@@ -1,1 +1,0 @@
-(self.webpackChunkshow=self.webpackChunkshow||[]).push([[143],{354:(n,e,u)=>{"use strict";const o={apiurl:"http://39.100.155.145:30004/wuliu_back/uds/"};var l=u.n(o),t=u(486),c=u.n(t);console.log(l().apiurl),document.body.appendChild(function(){const n=document.createElement("div");return n.innerHTML=c().join(["Hello, api地址: ",l().apiurl]," "),n}())}},0,[[354,666,216]]]);
