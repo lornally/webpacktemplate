@@ -694,3 +694,7 @@ externals:[
 ```
 
 - done react with c24n
+
+###### 0305
+
+- 受不鸟了, 弄个脚手架吧. 
