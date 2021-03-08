@@ -3,6 +3,7 @@
     ----------------------
     Created using https://github.com/rishabh3112/webpack-scaffold-starter
 */
+'use strict';
 const Generator = require('yeoman-generator');
 const {
     List,
