@@ -1,0 +1,33 @@
+{
+  "name": "cn",
+  "version": "1.0.0",
+  "bin": "./exroot/cmd/bin.js",
+  "description": "我的脚手架",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lornally/tspshow.git"
+  },
+  "keywords": [
+    "show",
+    "map",
+    "datashow"
+  ],
+  "author": "michael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lornally/tspshow/issues"
+  },
+  "homepage": "https://github.com/lornally/tspshow#readme",
+  "scripts": {
+    "demo": "webpack init webpack-scaffold-demo"
+  },
+  "devDependencies": {
+    "@webpack-cli/init": "^1.1.3",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "webpack-scaffold-starter": "^2.0.0"
+  }
+}

@@ -698,3 +698,28 @@ externals:[
 ###### 0305
 
 - 受不鸟了, 弄个脚手架吧. 
+
+###### 0306
+
+- 解决chrome的书签同步问题-> 形成blog
+- webpack init webpack-scaffold-demo 报错
+
+````
+webpack init webpack-scaffold-demo
+ Could not find a yeoman configuration file (.yo-rc.json).
+````
+
+- 可能是版本问题, 放弃解决这个问题,
+- 继续follow: https://webpack.docschina.org/contribute/writing-a-scaffold/
+
+```sh
+# 新建脚手架项目
+mkdir my-scaffold && cd my-scaffold
+npm install webpack-scaffold-starter
+npx webpack-scaffold
+git init # optional
+```
+
+###### 0308
+
+- 继续脚手架
