@@ -1,0 +1,25 @@
+{
+  "name": "myf",
+  "version": "1.0.1",
+  "description": "po.poeueoueou",
+  "main": "generator.js",
+  "devDependencies": {
+    "@webpack-cli/webpack-scaffold": "^1.0.3",
+    "webpack": "^5.24.4",
+    "yeoman-generator": "^5.1.0"
+  },
+  "author": "miberg",
+  "license": "ppt",
+  "scripts": {
+    "ini": "webpack init . ",
+    "cli": "webpack-cli init . ",
+    "myf": "webpack init webpack-scaffold-myf",
+    "test": "node  ./dist/api/main.js",
+    "build": "webpack ",
+    "dev": "webpack serve ",
+    "watch": "webpack --watch ",
+    "debug": "暂时麽咏nade ./dist"
+  },
+  "repository": "xxx.ppp",
+  "private": true
+}

@@ -723,3 +723,57 @@ git init # optional
 ###### 0308
 
 - 继续脚手架
+
+###### 0309
+
+- 脚手架过了一遍
+
+###### 0310
+
+- 最简单的版本无法运行. 
+- yarn 安装试一下.
+
+```sh
+yarn #安装依赖包
+yarn ini #实际运行 "scripts": {
+    "ini": "webpack init myfirst ",
+# 出现下面这个报错
+[webpack-cli] TypeError: myfirst isn't a valid name.
+
+# 改为这个会改变报错内容
+  "scripts": {
+    "ini": "webpack init . ",
+# 现在报错为:
+TypeError: self.prompt is not a function
+# 这里的问题是yeoman-generator版本太老了
+```
+
+- 直接使用demo还是报错. 感觉很可能是webpackcmdline的问题. 那么就有了一个思考, 真的要用脚手架吗?
+
+- 执行脚手架
+
+```sh
+webpack-cli init path/to/your/scaffold
+# 或者用link
+cd path/to/my-scaffold
+yarn link
+webpack-cli init my-scaffold
+# 此处咋也弄不好. webpack-scaffold前缀问题.
+# 如果可以从 npm 获得此 package，则其名称必须以 webpack-scaffold 开头，并且可以通过运行以下命令来使用：
+webpack-cli init webpack-scaffold-yourpackage
+
+# 此处搞明白了, package.json里面的项目名称并不重要. 只要执行到这个目录就好了, 比如有个目录xxx, 那么再xxx的父目录下执行
+npx webpack-cli init xxx
+```
+
+- 忽然醒悟, 可能是中文文档的问题. 神啊. 
+
+- 改了yaoman-generator版本, 修改了调用方式从父目录调用. 还是有问题
+
+```
+[webpack-cli] Could not find a yeoman configuration file (.yo-rc.json).
+```
+
+###### 0311
+
+- 基本明了了, 实际上用的脚手架项目是yeoman

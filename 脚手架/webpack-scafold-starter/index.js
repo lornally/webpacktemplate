@@ -24,7 +24,7 @@ module.exports = class WebpackGenerator extends Generator {
             topScope: ["// generated using webpack-scaffold-m"],
             webpackOptions: {}
         }
-    }
+    };
   }
 
   prompting() {
@@ -44,7 +44,7 @@ module.exports = class WebpackGenerator extends Generator {
                 console.log("Okay, Exiting...");
                 process.exit(0);
             }
-        })
+        });
   }
 /**
  * writing()
