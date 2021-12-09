@@ -22,6 +22,17 @@ entry:
     obj[path.parse(el).name] = el
     obj
   ,{}
+  
+# 上面这个配置其实不可以
+entry:{
+		# bin: './src/test.cs' #直接指定测试文件, 是比较柔软的做法
+		# 这个要指明目录,web专属内容cmd是编译不过去的, 比如css module
+		(glob.sync('./src/**/**.cs').reduce (obj, el)->
+			obj[path.parse(el).name] = el
+			obj
+		,{})...
+	}
 ```
 
 ###### 
+

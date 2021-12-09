@@ -771,9 +771,66 @@ npx webpack-cli init xxx
 - 改了yaoman-generator版本, 修改了调用方式从父目录调用. 还是有问题
 
 ```
+npx webpack-cli init webpack-scafold-starter
 [webpack-cli] Could not find a yeoman configuration file (.yo-rc.json).
 ```
 
 ###### 0311
 
 - 基本明了了, 实际上用的脚手架项目是yeoman
+
+###### 0312
+
+```
+cnpm install -g yo
+```
+
+###### 0316
+
+- 继续yeoman, 这篇文档流程比较完整: https://www.jianshu.com/p/f6b8ace5c287
+
+1. 安装yo
+
+   ```sh
+   npm install -g yo
+   ```
+
+2. 新建并使用目录: generator-name, 注意目录名必须用generator-开头
+
+3. package.json
+
+   ```json
+   "dependencies": {
+     "del": "^2.2.0",
+     "yeoman-generator": "^0.23.3"
+   }
+   ```
+
+4. index.js的框架代码
+
+```js
+// 导出模块，使得yo xxx能够运行
+module.exports = yeoman.generators.Base.extend({
+  constructor: function () {
+    // 默认会添加的构造函数
+    yeoman.generators.Base.apply(this, arguments);
+  },
+  prompting: function () {
+    // 询问用户
+  },
+  writing: {
+    // 拷贝文件，搭建脚手架
+  },
+  end: {
+    // 搭建完执行的操作
+  }
+})
+```
+
+4. 执行
+
+   ```sh
+   npm link # 把自己刚刚弄的脚手架做好软链接
+   yo #这样就进入对话模式, 然后选择自己要用的脚手架, 基本都是link过的.
+   ```
+

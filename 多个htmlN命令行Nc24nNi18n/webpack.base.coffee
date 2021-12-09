@@ -7,7 +7,7 @@ nodeExternals = require 'webpack-node-externals'
 
 
 module.exports =
-	#externals:[
+	# externals:[
 	#	nodeExternals() #这个很有用, 排除所有node_modules, 但是会引起webpack serve错误, 因此注释掉
 	#	/^library\/.+$/
 	#]
@@ -33,8 +33,8 @@ module.exports =
 		]
 	output:
 		filename: '[name].js'
-		#library: 'mh' # 指定library的name
-		#libraryTarget: 'umd' # 指定library编译的兼容性, common, es6, amd, umd, link...
+		# library: 'mh' # 指定library的name
+		# libraryTarget: 'umd' # 指定library编译的兼容性, common, es6, amd, umd, link...
 		# path: path.resolve __dirname,'exroot/dist'
 		# 不同的内容应该输出到不同的目录. 不然无法正常运行
 		#publicPath: '.'
@@ -47,6 +47,6 @@ module.exports =
 			test: /[\\/]node_modules[\\/]/
 			name: 'vendors'
 			chunks: 'all'
-	#resolve: # 解决自动查找index.cs而不是index.js的问题 #lib的配置
+	# resolve: # 解决自动查找index.cs而不是index.js的问题 #lib的配置
 	#	alias: mlib: path.resolve __dirname, '/Users/bergman/git/_X/code/lib/mcktools/src/'
 	#	extensions: ['.cs', '.coffee', '.mjs', '.js']
